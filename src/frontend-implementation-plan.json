@@ -1,0 +1,82 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Implement partner invitation link system - Frontend",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Create frontend component to display and copy invitation links for sharing with partners",
+      "acceptanceCriteria": [
+        "Component displays generated invitation link in readable format",
+        "Provides copy-to-clipboard functionality for easy sharing",
+        "Shows visual confirmation when link is copied",
+        "Displays instructions for partners on how to use the invitation link"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/InviteLinkGenerator.tsx",
+          "operation": "create",
+          "description": "Create a new component that generates and displays invitation links. Include a button to trigger link generation that calls the backend generateInviteCode function. Display the generated link with copy-to-clipboard functionality using navigator.clipboard.writeText. Show a success toast when copied. Include clear instructions for users on how to share the link with their partner. Use the warm rose/pink theme consistent with the app's design. Verify the authorization component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Replace the AddPartnerModal and PartnerForm components with the new invitation link generation interface in the Dashboard",
+      "acceptanceCriteria": [
+        "Remove or hide AddPartnerModal from Dashboard",
+        "Replace 'Add Partner' button functionality to show invitation link generator",
+        "Maintain existing partner display grid and PartnerCard components",
+        "Ensure Dashboard layout remains consistent with warm, nurturing theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard.tsx",
+          "operation": "modify",
+          "description": "Replace the AddPartnerModal trigger with the InviteLinkGenerator component. Remove the AddPartnerModal import and usage. Update the 'Add Partner' section to show the InviteLinkGenerator instead of opening a modal. Maintain the existing partner grid display and PartnerCard components. Keep the warm, nurturing visual theme with rose/pink color palette."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create frontend signup flow that accepts invitation codes as URL parameters and automatically joins partners to relationships after Internet Identity authentication",
+      "acceptanceCriteria": [
+        "Extract invitation code from URL parameters when present",
+        "Display invitation acceptance interface before or after authentication",
+        "Call backend validation function with invitation code after user authenticates",
+        "Show success message when partner is successfully added to relationship",
+        "Handle and display errors for invalid or expired invitation codes",
+        "Redirect to dashboard after successful invitation acceptance"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/InvitationAcceptance.tsx",
+          "operation": "create",
+          "description": "Create a component that handles invitation acceptance flow. Extract the invitation code from URL parameters using the existing urlParams utility. Display an acceptance interface that prompts the user to authenticate if not logged in, or prompts them to provide their name if they don't have a profile yet. After authentication and profile setup, automatically call the backend to validate and accept the invitation. Show loading state during validation. Display success message with toast notification when partner is added successfully. Handle errors for invalid or expired codes with appropriate error messages. Use warm, compassionate messaging and the rose/pink theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Integrate the InvitationAcceptance component into the main app flow. Check for invitation code in URL parameters on mount using the existing urlParams utility. If an invitation code is present, show the InvitationAcceptance component instead of the regular Dashboard until the invitation is processed. After successful acceptance, redirect to the Dashboard and clear the invitation code from the URL. Maintain existing authentication flow and auto-relationship creation logic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add React Query hooks for invitation link generation and validation operations with proper cache invalidation",
+      "acceptanceCriteria": [
+        "Create mutation hook for generating invitation links",
+        "Create mutation hook for validating and accepting invitation codes",
+        "Invalidate relationship queries after successful invitation acceptance",
+        "Handle loading and error states appropriately"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add useGenerateInviteCode mutation hook that calls actor.generateInviteCode and returns the generated code string. Add useAcceptInvitation mutation hook that accepts an invitation code and calls the appropriate backend function to validate and join the relationship. Include onSuccess callbacks that invalidate the 'allRelationships' query to refresh the dashboard after invitation acceptance. Handle loading states with isPending and error states with appropriate error objects."
+        }
+      ]
+    }
+  ]
+}

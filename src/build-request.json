@@ -1,0 +1,165 @@
+{
+  "kind": "build_request",
+  "title": "Implement partner invitation link system",
+  "projectName": "Relationship Harmony",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "text": "Create a backend data structure to store invitation codes with metadata including code string, expiration timestamp, relationship ID, creator principal, and used status",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-replace-forms",
+          "msg-user-start-with-links"
+        ],
+        "quotes": [
+          "Replace forms",
+          "And start with links"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Invitation data structure includes unique code string",
+        "Stores relationship ID to link invitation to correct relationship",
+        "Tracks whether invitation has been used",
+        "Includes expiration timestamp for invitation validity"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement backend function to generate unique invitation links that return a shareable code string for partners to use when creating their accounts",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-start-with-links"
+        ],
+        "quotes": [
+          "start with links"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Function generates cryptographically unique invitation codes",
+        "Invitation codes are associated with the creator's relationship",
+        "Function returns the invitation code to be shared",
+        "Prevents unauthorized users from generating invitations"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement backend function to validate invitation codes and automatically add partners to relationships when they sign up using valid invitation links",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-start-with-links"
+        ],
+        "quotes": [
+          "Allow partners to automatically join your relationship after signing up"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Validates invitation code exists and is not expired",
+        "Checks invitation has not already been used",
+        "Automatically creates partner entry in the relationship",
+        "Marks invitation as used after successful partner addition",
+        "Returns error for invalid or expired invitation codes"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Create frontend component to display and copy invitation links for sharing with partners",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-start-with-links"
+        ],
+        "quotes": [
+          "Generate unique invitation links that partners can click to create their accounts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Component displays generated invitation link in readable format",
+        "Provides copy-to-clipboard functionality for easy sharing",
+        "Shows visual confirmation when link is copied",
+        "Displays instructions for partners on how to use the invitation link"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Replace the AddPartnerModal and PartnerForm components with the new invitation link generation interface in the Dashboard",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-replace-forms"
+        ],
+        "quotes": [
+          "Replace forms"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Remove or hide AddPartnerModal from Dashboard",
+        "Replace 'Add Partner' button functionality to show invitation link generator",
+        "Maintain existing partner display grid and PartnerCard components",
+        "Ensure Dashboard layout remains consistent with warm, nurturing theme"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Create frontend signup flow that accepts invitation codes as URL parameters and automatically joins partners to relationships after Internet Identity authentication",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-start-with-links"
+        ],
+        "quotes": [
+          "partners can click to create their accounts",
+          "automatically join your relationship after signing up"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Extract invitation code from URL parameters when present",
+        "Display invitation acceptance interface before or after authentication",
+        "Call backend validation function with invitation code after user authenticates",
+        "Show success message when partner is successfully added to relationship",
+        "Handle and display errors for invalid or expired invitation codes",
+        "Redirect to dashboard after successful invitation acceptance"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add React Query hooks for invitation link generation and validation operations with proper cache invalidation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-start-with-links"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Create mutation hook for generating invitation links",
+        "Create mutation hook for validating and accepting invitation codes",
+        "Invalidate relationship queries after successful invitation acceptance",
+        "Handle loading and error states appropriately"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts or useInternetIdentity.tsx",
+    "Do not modify frontend/src/hooks/useActor.ts",
+    "Do not modify frontend/src/main.tsx",
+    "Do not modify frontend/src/components/ui directory",
+    "Maintain single-actor architecture in backend/main.mo",
+    "Preserve existing partner dashboard display functionality",
+    "Keep warm, nurturing visual theme with rose/pink color palette"
+  ],
+  "nonGoals": [
+    "Building messaging system (that comes later)",
+    "Building daily hearts feature (that comes later)",
+    "Building Zoom meeting link storage (that comes later)",
+    "Adding manual partner addition forms back",
+    "Implementing partner approval workflow",
+    "Email-based invitations"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

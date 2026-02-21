@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1rem;
+        
+        /* Warm, nurturing color palette - Light mode */
+        --background: 0.99 0.01 30;
+        --foreground: 0.2 0.02 30;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.2 0.02 30;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.2 0.02 30;
+        
+        /* Rose/Pink primary for romantic warmth */
+        --primary: 0.62 0.22 15;
+        --primary-foreground: 0.99 0.01 15;
+        
+        /* Soft lavender secondary */
+        --secondary: 0.95 0.02 300;
+        --secondary-foreground: 0.3 0.05 300;
+        
+        /* Peachy muted tones */
+        --muted: 0.96 0.02 40;
+        --muted-foreground: 0.5 0.03 30;
+        
+        /* Warm accent */
+        --accent: 0.94 0.05 50;
+        --accent-foreground: 0.3 0.05 30;
+        
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        
+        /* Soft borders */
+        --border: 0.92 0.02 30;
+        --input: 0.92 0.02 30;
+        --ring: 0.62 0.22 15;
+        
+        --chart-1: 0.65 0.22 15;
+        --chart-2: 0.7 0.15 300;
+        --chart-3: 0.75 0.18 50;
+        --chart-4: 0.68 0.2 280;
+        --chart-5: 0.72 0.16 35;
+    }
+
+    .dark {
+        --background: 0.15 0.02 280;
+        --foreground: 0.95 0.01 30;
+        
+        --card: 0.2 0.03 280;
+        --card-foreground: 0.95 0.01 30;
+        
+        --popover: 0.18 0.03 280;
+        --popover-foreground: 0.95 0.01 30;
+        
+        /* Lighter rose for dark mode */
+        --primary: 0.75 0.2 15;
+        --primary-foreground: 0.2 0.02 15;
+        
+        --secondary: 0.25 0.04 280;
+        --secondary-foreground: 0.95 0.01 280;
+        
+        --muted: 0.25 0.03 280;
+        --muted-foreground: 0.65 0.02 280;
+        
+        --accent: 0.3 0.05 300;
+        --accent-foreground: 0.95 0.01 300;
+        
+        --destructive: 0.65 0.22 27;
+        --destructive-foreground: 0.95 0.01 0;
+        
+        --border: 0.3 0.03 280;
+        --input: 0.3 0.03 280;
+        --ring: 0.7 0.18 15;
+        
+        --chart-1: 0.65 0.22 15;
+        --chart-2: 0.7 0.15 300;
+        --chart-3: 0.75 0.18 50;
+        --chart-4: 0.68 0.2 280;
+        --chart-5: 0.72 0.16 35;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}

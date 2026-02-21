@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Polyamorous relationship management app with support for multiple partners and pet care/emotional support features focused on the woman's needs",
+  "architectural_notes": [
+    "Partner invitation system will replace existing add/edit partner forms - partners join via invitation links instead of manual entry",
+    "User accounts required for partners - each partner creates individual account when accepting invitation",
+    "Implementation priority order: 1) Invitation links, 2) Messaging, 3) Daily hearts with streaks, 4) Zoom link management"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-a-dashboard-interface-displaying-all-partners-in-the-relationship-with-their-profiles-and-connection-status",
+      "title": "Build a dashboard interface displaying all partners in the relationship with their profiles and connection status",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-pet-care-section-showing-pet-profiles-with-care-schedules-and-emotional-support-tracking-focused-on-the-woman-s-wellbeing",
+      "title": "Create a pet care section showing pet profiles with care schedules and emotional support tracking focused on the woman's wellbeing",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-forms-for-adding-and-editing-partner-information-with-validation",
+      "title": "Implement forms for adding and editing partner information with validation",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-forms-for-adding-and-editing-pet-profiles-with-care-schedule-management",
+      "title": "Implement forms for adding and editing pet profiles with care schedule management",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-warm-nurturing-visual-theme-with-soft-colors-and-compassionate-typography-that-emphasizes-care-connection-and-emotional-wellbeing-throughout-the-interface",
+      "title": "Design a warm, nurturing visual theme with soft colors and compassionate typography that emphasizes care, connection, and emotional wellbeing throughout the interface",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-frontend-component-to-display-and-copy-invitation-links-for-sharing-with-partners",
+      "title": "Create frontend component to display and copy invitation links for sharing with partners",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-addpartnermodal-and-partnerform-components-with-the-new-invitation-link-generation-interface-in-the-dashboard",
+      "title": "Replace the AddPartnerModal and PartnerForm components with the new invitation link generation interface in the Dashboard",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-frontend-signup-flow-that-accepts-invitation-codes-as-url-parameters-and-automatically-joins-partners-to-relationships-after-internet-identity-authentication",
+      "title": "Create frontend signup flow that accepts invitation codes as URL parameters and automatically joins partners to relationships after Internet Identity authentication",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-react-query-hooks-for-invitation-link-generation-and-validation-operations-with-proper-cache-invalidation",
+      "title": "Add React Query hooks for invitation link generation and validation operations with proper cache invalidation",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Support multiple partners in polyamorous relationship structure",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Include pet profiles for care tracking and emotional support",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Focus features on woman's emotional support and care needs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create a data model to store and manage multiple partner profiles within a single relationship structure, including fields for name, relationship type, and connection date",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create a data model for pet profiles including name, type, care schedule, and emotional support notes",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Generate unique invitation links that partners can use to create individual accounts and join the relationship",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement one-on-one and group messaging system between primary user and all partners",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create daily hearts feature with manual sending and consecutive day streak tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add Zoom meeting link storage and display for individual partners and groups with meeting codes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Create a backend data structure to store invitation codes with metadata including code string, expiration timestamp, relationship ID, creator principal, and used status",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement backend function to generate unique invitation links that return a shareable code string for partners to use when creating their accounts",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement backend function to validate invitation codes and automatically add partners to relationships when they sign up using valid invitation links",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Relationship Harmony",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

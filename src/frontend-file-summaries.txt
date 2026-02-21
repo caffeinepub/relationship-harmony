@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component with authentication flow, invitation code detection from URL parameters, auto-creation of default relationship, and routing between invitation acceptance and dashboard views.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component providing header with branding and authentication controls, main content area, and footer with attribution.",
+  "frontend/src/components/Dashboard.tsx": "Dashboard page displaying partners section with invitation link generator replacing the add partner modal, maintaining existing partner display grid and pet care section.",
+  "frontend/src/components/PartnerCard.tsx": "Card component displaying individual partner information including name, relationship type badge, and connection date with warm styling using User icon instead of UserHeart.",
+  "frontend/src/components/PetCard.tsx": "Card component showing pet details including name, type, care schedule, and emotional support notes with nurturing design.",
+  "frontend/src/components/AddPartnerModal.tsx": "Modal dialog wrapper for the partner form with compassionate messaging.",
+  "frontend/src/components/PartnerForm.tsx": "Form component for adding new partners with name and relationship type fields, validation, and success feedback.",
+  "frontend/src/components/AddPetModal.tsx": "Modal dialog wrapper for the pet form with supportive messaging.",
+  "frontend/src/components/PetForm.tsx": "Form component for adding pets with fields for name, type, care schedule, and emotional support notes with validation.",
+  "frontend/src/components/PetCareSection.tsx": "Section component displaying all pets with add button and empty state, emphasizing emotional support.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including relationships, partners, pets, user profiles, and invitation link generation/acceptance with proper cache invalidation.",
+  "frontend/src/index.css": "Global styles with warm OKLCH color system featuring rose, pink, lavender, and peachy tones for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended warm color palette, custom shadows, and Inter font family for gentle typography.",
+  "frontend/src/components/InviteLinkGenerator.tsx": "Component that generates unique invitation links for partners with copy-to-clipboard functionality and clear sharing instructions using warm rose/pink theme.",
+  "frontend/src/components/InvitationAcceptance.tsx": "Handles the invitation acceptance flow including authentication, profile setup, and automatic relationship joining with compassionate messaging and loading states."
+}
